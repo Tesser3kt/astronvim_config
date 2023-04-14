@@ -36,7 +36,7 @@ return {
           -- "go",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
+          "tex", "latex"
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -81,5 +81,13 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
+    require("luasnip").config.set_config({
+      -- Autotriggered snippets
+      enable_autosnippets = true,
+
+      -- Tab to trigger visual selection
+      store_selection_keys = "<Tab>"
+    })
   end,
 }
