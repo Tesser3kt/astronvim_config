@@ -81,7 +81,7 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
+    require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/user/snippets"})
     require("luasnip").config.set_config({
       -- Autotriggered snippets
       enable_autosnippets = true,
