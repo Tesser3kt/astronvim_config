@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "catppuccin-mocha",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -88,6 +88,12 @@ return {
 
       -- Tab to trigger visual selection
       store_selection_keys = "<Tab>"
+    })
+
+    -- tabstops and shiftwidth for latex
+    vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+      pattern = "*.tex",
+      command = "set shiftwidth=1",
     })
   end,
 }

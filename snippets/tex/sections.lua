@@ -1,3 +1,5 @@
+-- [[ Contains snippets for parts, chapters, sections, subsections and subsubsections. ]]
+
 function labelize(label)
   local toLabel = {
     ["á"] = "a",
@@ -23,14 +25,33 @@ function labelize(label)
   end
   return plainLabel:gsub("[^%a-']", "")
 end
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
-return {
-  -- Section snippets
+return { 
+  -- Part snippet
+  s(
+    { trig = "part", dscr = "Part snippet with auto label." },
+    fmta(
+      [[
+        \part{<>}
+        \label{part:<>}
+
+        <>
+      ]],
+      {
+        i(1),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0),
+      }
+    ),
+    { condition = line_begin }
+  ),
+  -- Section snippet
   s(
     { trig = "sec", dscr = "Section snippet with auto label." },
     fmta(
       [[
-        \section{<>},
+        \section{<>}
         \label{sec:<>}
 
         <>
@@ -40,7 +61,44 @@ return {
         f(function(args) return labelize(args[1][1]) end, {1}),
         i(0),
       }
-    )
-  )
+    ),
+    { condition = line_begin }
+  ),
+  -- Subsection snippet
+  s(
+    { trig = "ssec", dscr = "Subsection snippet with auto label." },
+    fmta(
+      [[
+        \subsection{<>}
+        \label{ssec:<>}
+
+        <>
+      ]],
+      {
+        i(1),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0),
+      }
+    ),
+    { condition = line_begin }
+  ),
+  -- Subsubsection snippet
+  s(
+    { trig = "sssec", dscr = "Subsubsection snippet with auto label." },
+    fmta(
+      [[
+        \subsubsection{<>}
+        \label{sssec:<>}
+
+        <>
+      ]],
+      {
+        i(1),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0),
+      }
+    ),
+    { condition = line_begin }
+  ),
 }
 
