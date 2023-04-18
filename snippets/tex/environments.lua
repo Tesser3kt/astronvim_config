@@ -51,11 +51,53 @@ end
 tex_utils.in_tikz = function()  -- TikZ picture environment detection
     return tex_utils.in_env('tikzpicture')
 end
+tex_utils.in_split = function() -- Equation split environment detection
+    return tex_utils.in_env('split')
+end
+
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
+-- Get visual selection text
+local get_visual = function(args, parent)
+  if (#parent.snippet.env.SELECT_RAW > 0) then
+    return sn(nil, i(1, parent.snippet.env.SELECT_RAW))
+  else  -- If SELECT_RAW is empty, return a blank insert node
+    return sn(nil, i(1))
+  end
+end
 
 -- Snippets
 return { 
+  -- Inline and display math snippets
+  s(
+    { trig = "([^%a])mk", regTrig = true, wordTrig = false, snippetType = "autosnippet",
+     dscr = "Inline math environment." },
+    fmta(
+      "<>$<>$<>",
+      { 
+        f(function(_, snip) return snip.captures[1] end),
+        d(1, get_visual),
+        i(0) 
+      }
+    )
+  ),
+  s(
+   { trig = "md", snippetType = "autosnippet", dscr = "Display math environment." },
+   fmta(
+    [[
+      \[
+       <>
+      \]
+      <>
+    ]],
+    {
+      i(1),
+      i(0)
+    }
+   ),
+   { condition = line_begin }
+  ),
+
   -- Generic environment snippet
   s(
     { trig = "beg", dscr = "Generic environment." },
@@ -162,5 +204,58 @@ return {
     ),
     { condition = line_begin }
   ),
+
+  -- Equation environments
+  s(
+    { trig = "eq", dscr = "Labeled equation environment." },
+    fmta(
+      [[
+        \begin{equation}
+         \label{eq:<>}
+         <>
+        \end{equation}
+      ]],
+      {
+        i(1),
+        i(0)
+      }
+    ),
+    { condition = line_begin }
+  ),
+  s(
+    { trig = "eq*", dscr = "Unlabeled equation environment." },
+    fmta(
+      [[
+        \begin{equation*}
+         <>
+        \end{equation*}
+      ]],
+      {
+        i(0)
+      }
+    ),
+    { condition = line_begin }
+  ),
+  s(
+    { trig = "split", dscr = "Split equation environment." },
+    fmta(
+      [[
+        \begin{equation*}
+         \begin{split}
+          <>
+         \end{split}
+        \end{equation*}
+      ]],
+      {
+        i(0)
+      }
+    ),
+    { condition = line_begin }
+  ),
+  s(
+   { trig = "==", snippetType = "autosnippet", dscr = "Split align to = snippet." },
+   fmta("&= <> \\\\<>", { i(1), i(0) }),
+   { condition = tex_utils.in_split }
+  )
 }
 

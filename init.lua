@@ -90,10 +90,19 @@ return {
       store_selection_keys = "<Tab>"
     })
 
-    -- tabstops and shiftwidth for latex
+    -- LaTeX local settings
     vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
       pattern = "*.tex",
-      command = "set shiftwidth=1",
+      callback = function()
+        vim.opt_local.shiftwidth = 1
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "csa"
+        vim.opt_local.textwidth = 80
+        vim.opt_local.wrapmargin = 2
+        vim.opt_local.formatoptions = "tcq"
+        vim.opt_local.colorcolumn = "81"
+      end
     })
+
   end,
 }

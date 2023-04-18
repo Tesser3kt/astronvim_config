@@ -27,4 +27,8 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  i = {
+    -- disable VimTeX jk mapping
+    ["jk"] = false,
+  }
 }
