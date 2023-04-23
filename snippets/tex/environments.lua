@@ -82,6 +82,18 @@ return {
     )
   ),
   s(
+    { trig = "mk", 
+    dscr = "Inline math environment (newline version).",
+    snippetType = "autosnippet" },
+    fmta(
+      "$<>$<>",
+      { 
+        d(1, get_visual),
+        i(0) 
+      }
+    )
+  ),
+  s(
    { trig = "md", snippetType = "autosnippet", dscr = "Display math environment." },
    fmta(
     [[
@@ -256,6 +268,214 @@ return {
    { trig = "==", snippetType = "autosnippet", dscr = "Split align to = snippet." },
    fmta("&= <> \\\\<>", { i(1), i(0) }),
    { condition = tex_utils.in_split }
-  )
+  ),
+
+  -- Theorem environments
+  s(
+    {trig = "thm", dscr = "Theorem environment" },
+    fmta(
+      [[
+        \begin{theorem}<><><>
+         \label{thm:<><>}
+         <>
+        \end{theorem}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "prop", dscr = "Proposition environment" },
+    fmta(
+      [[
+        \begin{proposition}<><><>
+         \label{prop:<><>}
+         <>
+        \end{proposition}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "claim", dscr = "Claim environment" },
+    fmta(
+      [[
+        \begin{claim}<><><>
+         \label{claim:<><>}
+         <>
+        \end{claim}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "lem", dscr = "Lemma environment" },
+    fmta(
+      [[
+        \begin{lemma}<><><>
+         \label{lem:<><>}
+         <>
+        \end{lemma}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "def", dscr = "Definition environment" },
+    fmta(
+      [[
+        \begin{definition}<><><>
+         \label{def:<><>}
+         <>
+        \end{definition}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "cor", dscr = "Corollary environment" },
+    fmta(
+      [[
+        \begin{corollary}<><><>
+         \label{cor:<><>}
+         <>
+        \end{corollary}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "prob", dscr = "Problem environment" },
+    fmta(
+      [[
+        \begin{problem}<><><>
+         \label{prob:<><>}
+         <>
+        \end{problem}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "exam", dscr = "Example environment" },
+    fmta(
+      [[
+        \begin{example}<><><>
+         \label{exam:<><>}
+         <>
+        \end{example}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
+        i(2),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+
+  -- Plain theorem environments
+  s(
+    {trig = "rmrk", dscr = "Remark environment" },
+    fmta(
+      [[
+        \begin{remark}
+         <>
+        \end{remark}
+      ]],
+      {
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "prf", dscr = "Proof environment" },
+    fmta(
+      [[
+        \begin{proof}
+         <>
+        \end{proof}
+      ]],
+      {
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "warn", dscr = "Warning environment" },
+    fmta(
+      [[
+        \begin{warning}
+         <>
+        \end{warning}
+      ]],
+      {
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "obs", dscr = "Observation environment" },
+    fmta(
+      [[
+        \begin{observation}
+         <>
+        \end{observation}
+      ]],
+      {
+        i(0)
+      }
+    )
+  ),
 }
 

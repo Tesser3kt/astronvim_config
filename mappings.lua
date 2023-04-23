@@ -28,7 +28,6 @@ return {
     -- ["<esc>"] = false,
   },
   i = {
-    -- disable VimTeX jk mapping
-    ["jk"] = false,
+    -- Insert mode mappings
   }
 }

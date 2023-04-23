@@ -18,7 +18,6 @@ function labelize(label)
   }
 
   local plainLabel = label:lower():gsub("%s+", "-")
-  print(plainLabel)
 
   for accented, plain in pairs(toLabel) do
     plainLabel = plainLabel:gsub(accented, plain)
