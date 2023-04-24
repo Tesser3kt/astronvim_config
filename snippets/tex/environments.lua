@@ -167,7 +167,15 @@ return {
   s(
     { trig = "(%s+)ii", regTrig = true, wordTrig = false, snippetType = "autosnippet",
       dscr = "Next item snippet." },
-    fmta("<>\\item <>", { t("\t"), i(0) }),
+    fmta(
+      "<>\\item <>",
+      {
+        f(function(_, snip)
+          local spaces = string.len(snip.captures[1])
+          return string.rep("\t", spaces - 1)
+        end),
+        i(0) 
+      }),
     { condition = line_begin and tex_utils.in_item_or_enum }
   ),
 
