@@ -273,6 +273,21 @@ return {
     { condition = line_begin }
   ),
   s(
+    { trig = "case", dscr = "Cases environment "},
+    fmta(
+      [[
+        \begin{cases}
+         <>
+        \end{cases}
+        <>
+      ]],
+      {
+        i(1),
+        i(0)
+      }
+    )
+  ),
+  s(
    { trig = "==", snippetType = "autosnippet", dscr = "Split align to = snippet." },
    fmta("&= <> \\\\<>", { i(1), i(0) }),
    { condition = tex_utils.in_split }
