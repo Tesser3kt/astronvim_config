@@ -4,6 +4,35 @@ tex_utils.in_mathzone = function()  -- math context detection
 end
 
 return {
+  -- Roots
+  s(
+    {
+      trig = "sq",
+      priority = 100,
+      snippetType = "autosnippet",
+      dscr = "The square root function."
+    },
+    fmta(
+      "\\sqrt{<>}<>",
+      { i(1), i(0) }
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    {
+      trig = "nsq",
+      priority = 200,
+      snippetType = "autosnippet",
+      dscr = "The n-th root function."
+    },
+    fmta(
+      "\\sqrt[<>]{<>}<>",
+      { i(1, "n"), i(2), i(0) }
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
+
+
   -- Elementary functions
   s(
     {
@@ -355,4 +384,20 @@ return {
     { condition = tex_utils.in_mathzone }
   ),
 
+  -- Cardinality
+  s(
+    {
+      trig = "([^\\])#(%s+)",
+      priority = 100,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "The cardinality of a set."
+    },
+    fmta(
+      "<>\\# ",
+      f(function(_, snip) return snip.captures[1] end)
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
 }

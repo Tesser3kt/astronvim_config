@@ -4,9 +4,36 @@ tex_utils.in_mathzone = function()  -- math context detection
 end
 
 return {
+  -- General symbols
   s(
     { trig = "...", snippetType = "autosnippet", dscr = "Ellipsis" },
     t("\\ldots"),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { trig = "nf", snippetType = "autosnippet", dscr = "Infinity" },
+    t("\\infty"),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { trig = "o.", snippetType = "autosnippet", dscr = "Bullet symbol" },
+    t("\\bullet"),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { trig = "grad", snippetType = "autosnippet", dscr = "Gradient" },
+    t("\\nabla"),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    {
+      trig = "(%s*)qq",
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Quad space" 
+    },
+    t(" \\quad "),
     { condition = tex_utils.in_mathzone }
   ),
 
@@ -66,6 +93,29 @@ return {
     t(" \\vee "),
     { condition = tex_utils.in_mathzone }
   ),
+  s(
+    { 
+      trig = "(%s*)AA", 
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "For all"
+    },
+    t(" \\forall "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)EE", 
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Exists"
+    },
+    t(" \\exists "),
+    { condition = tex_utils.in_mathzone }
+  ),
+
 
   -- Equality stuffs
   s(
@@ -303,4 +353,145 @@ return {
     { condition = tex_utils.in_mathzone }
   ),
 
+  -- Arrows
+  s(
+    { 
+      trig = "(%s*)->", 
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Map arrow"
+    },
+    t(" \\to "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)sur", 
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Surjection"
+    },
+    t(" \\twoheadrightarrow "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)inj", 
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Injection"
+    },
+    t(" \\hookrightarrow "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)!>", 
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Maps to"
+    },
+    t(" \\mapsto "),
+    { condition = tex_utils.in_mathzone }
+  ),
+
+  -- Conditions
+  s(
+    { 
+      trig = "(%s*)inn",
+      priority = 1000,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Element of"
+    },
+    t(" \\in "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)notin",
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Not element of"
+    },
+    t(" \\notin "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)cc",
+      priority = 100,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Subset"
+    },
+    t(" \\subseteq "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)scc",
+      priority = 200,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Proper subset"
+    },
+    t(" \\subsetneq "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)ncc",
+      priority = 200,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Not subset"
+    },
+    t(" \\nsubseteq "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)div",
+      priority = 100,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Divides"
+    },
+    t(" \\parallel "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)ndiv",
+      priority = 200,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Divides not"
+    },
+    t(" \\nparallel "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)||",
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Set delimiter"
+    },
+    t(" \\mid "),
+    { condition = tex_utils.in_mathzone }
+  ),
 }

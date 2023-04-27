@@ -67,7 +67,7 @@ local get_visual = function(args, parent)
 end
 
 -- Snippets
-return { 
+return {
   -- Inline and display math snippets
   s(
     { trig = "([^%a])mk", regTrig = true, wordTrig = false, snippetType = "autosnippet",
@@ -220,6 +220,52 @@ return {
         i(0),
         i(2),
         i(3),
+      }
+    ),
+    { condition = line_begin }
+  ),
+
+  -- Table environment
+  s(
+    { trig = "table", dscr = "Table environment." },
+    fmta(
+      [[
+        \begin{table}[<>]
+         \centering
+         <>
+
+         \caption{<>}
+         \label{table:<>}
+        \end{table}
+      ]],
+      {
+        i(1, "htbp"),
+        i(0),
+        i(2),
+        i(3),
+      }
+    ),
+    { condition = line_begin }
+  ),
+  s(
+    { trig = "tabular", dscr = "Tabularx environment." },
+    fmta(
+      [[
+        \begin{table}[<>]
+         \centering
+         \begin{tabularx}{<>}
+          <>
+         \end{tabularx}
+         \caption{<>}
+         \label{table:<>}
+        \end{table}
+      ]],
+      {
+        i(1, "htbp"),
+        i(2),
+        i(0),
+        i(3),
+        i(4),
       }
     ),
     { condition = line_begin }
@@ -499,6 +545,44 @@ return {
         i(0)
       }
     )
+  ),
+
+  -- Matrices
+  s(
+    {
+      trig = "pmat",
+      priority = 200,
+      dscr = "Parenthesis matrix"
+    },
+    fmta([[
+      \begin{pmatrix}
+       <>
+      \end{pmatrix}
+      <>
+    ]],
+    {
+      i(1),
+      i(0)
+    }),
+    { condition = line_begin }
+  ),
+  s(
+    {
+      trig = "mat",
+      priority = 100,
+      dscr = "Brackets matrix"
+    },
+    fmta([[
+      \begin{bmatrix}
+       <>
+      \end{bmatrix}
+      <>
+    ]],
+    {
+      i(1),
+      i(0)
+    }),
+    { condition = line_begin }
   ),
 }
 

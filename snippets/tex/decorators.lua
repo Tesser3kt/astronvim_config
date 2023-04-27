@@ -25,6 +25,15 @@ return {
   -- Math Font Decorators
   s(
     { 
+      trig = "tt",
+      snippetType = "autosnippet",
+      dscr = "Math normal text"
+    },
+    fmta("\\text{<>}<>", { i(1), i(0) }),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
       trig = "cal",
       priority = 100,
       snippetType = "autosnippet",
