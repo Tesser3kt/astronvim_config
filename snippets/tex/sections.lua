@@ -45,6 +45,24 @@ return {
     ),
     { condition = line_begin }
   ),
+  -- Chapter snippet
+  s(
+    { trig = "chap", dscr = "Chapter snippet with auto label." },
+    fmta(
+      [[
+        \chapter{<>}
+        \label{chap:<>}
+
+        <>
+      ]],
+      {
+        i(1),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0),
+      }
+    ),
+    { condition = line_begin }
+  ),
   -- Section snippet
   s(
     { trig = "sec", dscr = "Section snippet with auto label." },

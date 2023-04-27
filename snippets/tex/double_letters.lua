@@ -44,7 +44,7 @@ return {
       wordTrig = false,
       dscr = "Complex numbers"
     },
-    t("\\R"),
+    t("\\C"),
     { condition = tex_utils.in_mathzone }
   ),
   s(

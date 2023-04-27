@@ -29,5 +29,7 @@ return {
   },
   i = {
     -- Insert mode mappings
+    -- Correct last spelling mistake
+    ["<C-l>"] = { "<c-g>u<Esc>[s1z=`]a<c-g>u", desc = "Correct last spelling mistake" }
   }
 }

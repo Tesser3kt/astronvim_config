@@ -153,6 +153,20 @@ return {
   ),
   s(
     { 
+      trig = "([^%s]+)<",
+      priority = 100,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Less"
+    },
+    f(function(_,snip)
+      return snip.captures[1].." < "
+    end),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
       trig = "(%s*)>=", 
       regTrig = true,
       wordTrig = false,
@@ -160,6 +174,20 @@ return {
       dscr = "Greater or equal"
     },
     t(" \\geq "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "([^%s]+)>", 
+      priority = 100,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Greater"
+    },
+    f(function(_,snip)
+      return snip.captures[1].." > "
+    end),
     { condition = tex_utils.in_mathzone }
   ),
   s(
@@ -367,7 +395,20 @@ return {
   -- Arrows
   s(
     { 
-      trig = "(%s*)->", 
+      trig = "(%s*)->",
+      priority = 200,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Map arrow"
+    },
+    t(" \\to "),
+    { condition = tex_utils.in_mathzone }
+  ), 
+  s(
+    { 
+      trig = "(%s*)to",
+      priority = 200,
       regTrig = true,
       wordTrig = false,
       snippetType = "autosnippet",
@@ -376,6 +417,7 @@ return {
     t(" \\to "),
     { condition = tex_utils.in_mathzone }
   ),
+
   s(
     { 
       trig = "(%s*)sur", 
@@ -401,6 +443,7 @@ return {
   s(
     { 
       trig = "(%s*)!>", 
+      priority = 200,
       regTrig = true,
       wordTrig = false,
       snippetType = "autosnippet",
@@ -460,14 +503,16 @@ return {
   ),
   s(
     { 
-      trig = "(%s*)ncc",
+      trig = "([^%^^_])(%s*)ncc",
       priority = 200,
       regTrig = true,
       wordTrig = false,
       snippetType = "autosnippet",
       dscr = "Not subset"
     },
-    t(" \\nsubseteq "),
+    f(function(_,snip)
+      return snip.captures[1].." \\nsubseteq "
+    end),
     { condition = tex_utils.in_mathzone }
   ),
   s(

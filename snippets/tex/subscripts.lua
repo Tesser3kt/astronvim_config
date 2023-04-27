@@ -153,4 +153,23 @@ return {
     fmta("_{<>}<>", { i(1), i(0) }),
     { condition = tex_utils.in_mathzone }
   ),
+
+  -- Restriction
+  s(
+    {
+      trig = "(%a+)|\\",
+      wordTrig = false,
+      regTrig = true,
+      snippetType = "autosnippet",
+      dscr = "Restriction"
+    },
+    fmta("<>_{|<>}<>", { 
+      f(function(_,snip)
+        return snip.captures[1]
+      end),
+      i(1), 
+      i(0) 
+    }),
+    { condition = tex_utils.in_mathzone }
+  ),
 }
