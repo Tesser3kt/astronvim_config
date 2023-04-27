@@ -70,18 +70,6 @@ end
 return {
   -- Inline and display math snippets
   s(
-    { trig = "([^%a])mk", regTrig = true, wordTrig = false, snippetType = "autosnippet",
-     dscr = "Inline math environment." },
-    fmta(
-      "<>$<>$<>",
-      { 
-        f(function(_, snip) return snip.captures[1] end),
-        d(1, get_visual),
-        i(0) 
-      }
-    )
-  ),
-  s(
     { trig = "mk", 
     dscr = "Inline math environment (newline version).",
     snippetType = "autosnippet" },
@@ -379,7 +367,7 @@ return {
     )
   ),
   s(
-    {trig = "claim", dscr = "Claim environment" },
+    { trig = "claim", dscr = "Claim environment" },
     fmta(
       [[
         \begin{claim}<><><>

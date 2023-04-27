@@ -95,6 +95,17 @@ return {
   ),
   s(
     { 
+      trig = "neg", 
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Negation"
+    },
+    t("\\neg "),
+    { condition = tex_utils.in_mathzone }
+  ),
+
+  s(
+    { 
       trig = "(%s*)AA", 
       regTrig = true,
       wordTrig = false,
@@ -492,6 +503,17 @@ return {
       dscr = "Set delimiter"
     },
     t(" \\mid "),
+    { condition = tex_utils.in_mathzone }
+  ),
+
+  -- Weird stuffs
+  s(
+    {
+      trig = "sgn",
+      snippetType = "autosnippet",
+      dscr = "(-1)^{whatever}"
+    },
+    fmta("(-1)^{<>}<>", { i(1, "n"), i(0) }),
     { condition = tex_utils.in_mathzone }
   ),
 }

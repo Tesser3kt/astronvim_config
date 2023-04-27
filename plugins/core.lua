@@ -21,6 +21,7 @@ return {
     end,
   },
   { "max397574/better-escape.nvim", enabled = false},
+  { "windwp/nvim-autopairs", enabled = false},
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --

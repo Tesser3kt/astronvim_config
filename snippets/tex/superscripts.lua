@@ -25,6 +25,16 @@ return {
     t("^3"),
     { condition = tex_utils.in_mathzone }
   ),
+  s(
+    {
+      trig = "inv",
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "Inverse"
+    },
+    t("^{-1}"),
+    { condition = tex_utils.in_mathzone }
+  ),
 
   -- General superscripts
   s(

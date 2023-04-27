@@ -64,7 +64,7 @@ return {
       wordTrig = false,
       dscr = "Finite field"
     },
-    t("\\K"),
+    t("\\F"),
     { condition = tex_utils.in_mathzone }
   ),
   s(
@@ -116,7 +116,7 @@ return {
       wordTrig = false,
       dscr = "Zariski open set"
     },
-    t("\\V"),
+    t("\\D"),
     { condition = tex_utils.in_mathzone }
   ),
   s(
@@ -126,7 +126,7 @@ return {
       wordTrig = false,
       dscr = "Projective plane"
     },
-    t("\\R"),
+    t("\\P"),
     { condition = tex_utils.in_mathzone }
   ),
 }
