@@ -216,21 +216,6 @@ return {
   ),
   s(
     {
-      trig = "([^\\])dim",
-      priority = 100,
-      regTrig = true,
-      wordTrig = false,
-      snippetType = "autosnippet",
-      dscr = "The dimension function."
-    },
-    fmta(
-      "<>\\dim",
-      f(function(_, snip) return snip.captures[1] end)
-    ),
-    { condition = tex_utils.in_mathzone }
-  ),
-  s(
-    {
       trig = "([^\\])arcsin",
       priority = 200,
       regTrig = true,

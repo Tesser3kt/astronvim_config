@@ -153,20 +153,6 @@ return {
   ),
   s(
     { 
-      trig = "([^%s]+)<",
-      priority = 100,
-      regTrig = true,
-      wordTrig = false,
-      snippetType = "autosnippet",
-      dscr = "Less"
-    },
-    f(function(_,snip)
-      return snip.captures[1].." < "
-    end),
-    { condition = tex_utils.in_mathzone }
-  ),
-  s(
-    { 
       trig = "(%s*)>=", 
       regTrig = true,
       wordTrig = false,
@@ -174,20 +160,6 @@ return {
       dscr = "Greater or equal"
     },
     t(" \\geq "),
-    { condition = tex_utils.in_mathzone }
-  ),
-  s(
-    { 
-      trig = "([^%s]+)>", 
-      priority = 100,
-      regTrig = true,
-      wordTrig = false,
-      snippetType = "autosnippet",
-      dscr = "Greater"
-    },
-    f(function(_,snip)
-      return snip.captures[1].." > "
-    end),
     { condition = tex_utils.in_mathzone }
   ),
   s(
@@ -529,14 +501,16 @@ return {
   ),
   s(
     { 
-      trig = "(%s*)ndiv",
+      trig = "([^%^^_])(%s*)ndiv",
       priority = 200,
       regTrig = true,
       wordTrig = false,
       snippetType = "autosnippet",
       dscr = "Divides not"
     },
-    t(" \\nparallel "),
+    f(function(_,snip)
+        return snip.captures[1].." \\nparallel "
+    end),
     { condition = tex_utils.in_mathzone }
   ),
   s(

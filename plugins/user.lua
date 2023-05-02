@@ -116,4 +116,5 @@ return {
     "catppuccin/nvim",
     name = "catppuccin"
   },
+  { "andweeb/presence.nvim" },
 }
