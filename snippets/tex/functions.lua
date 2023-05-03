@@ -231,21 +231,6 @@ return {
   ),
   s(
     {
-      trig = "([^\\])arccos",
-      priority = 200,
-      regTrig = true,
-      wordTrig = false,
-      snippetType = "autosnippet",
-      dscr = "The arccos function."
-    },
-    fmta(
-      "<>\\arccos",
-      f(function(_, snip) return snip.captures[1] end)
-    ),
-    { condition = tex_utils.in_mathzone }
-  ),
-  s(
-    {
       trig = "([^\\])arctan",
       priority = 200,
       regTrig = true,
