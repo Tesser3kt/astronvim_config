@@ -70,16 +70,36 @@ end
 return {
   -- Inline and display math snippets
   s(
+    { trig = "(%s+)mk", 
+      dscr = "Inline math environment.",
+      snippetType = "autosnippet",
+      wordTrig = false,
+      regTrig = true
+    },
+    fmta(
+      "<>$<>$<>",
+      { 
+        f(function(_,snip)
+          return snip.captures[1]
+        end),
+        d(1, get_visual),
+        i(0) 
+      }
+    )
+  ),
+  s(
     { trig = "mk", 
-    dscr = "Inline math environment (newline version).",
-    snippetType = "autosnippet" },
+      dscr = "Inline math environment (newline version).",
+      snippetType = "autosnippet"
+    },
     fmta(
       "$<>$<>",
       { 
         d(1, get_visual),
         i(0) 
       }
-    )
+    ),
+    { condition = line_begin }
   ),
   s(
    { trig = "md", snippetType = "autosnippet", dscr = "Display math environment." },
@@ -438,6 +458,22 @@ return {
         f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
         i(2),
         f(function(args) return labelize(args[1][1]) end, {1}),
+        i(0)
+      }
+    )
+  ),
+  s(
+    {trig = "exer", dscr = "Exercise environment." },
+    fmta(
+      [[
+        \begin{exercise}<><><>
+         <>
+        \end{exercise}
+      ]],
+      {
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
+        i(1),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
         i(0)
       }
     )

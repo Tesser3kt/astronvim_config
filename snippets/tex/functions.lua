@@ -354,6 +354,38 @@ return {
     { condition = tex_utils.in_mathzone }
   ),
 
+  -- Maximum / Minimum
+  s(
+    {
+      trig = "([^\\])max",
+      priority = 100,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "The maximum."
+    },
+    fmta(
+      "<>\\max",
+      f(function(_, snip) return snip.captures[1] end)
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    {
+      trig = "([^\\])min",
+      priority = 100,
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+      dscr = "The minimum."
+    },
+    fmta(
+      "<>\\max",
+      f(function(_, snip) return snip.captures[1] end)
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
+
   -- Cardinality
   s(
     {
