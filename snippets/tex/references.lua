@@ -45,9 +45,21 @@ return {
   s(
     {
       trig = "cite",
+      priority = 100,
       dscr = "Insert citation."
     },
     fmta("\\cite{<>}<>", {
+      i(1, "link"),
+      i(0)
+    })
+  ),
+  s(
+    {
+      trig = "acite",
+      priority = 200,
+      dscr = "Insert automatic citation."
+    },
+    fmta("\\autocite{<>}<>", {
       i(1, "link"),
       i(0)
     })
