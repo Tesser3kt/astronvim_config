@@ -70,7 +70,7 @@ end
 return {
   -- Inline and display math snippets
   s(
-    { trig = "(%s+)mk", 
+    { trig = "([%s%(%[%{]+)mk", 
       dscr = "Inline math environment.",
       snippetType = "autosnippet",
       wordTrig = false,
@@ -606,6 +606,31 @@ return {
       i(1),
       i(0)
     }),
+    { condition = line_begin }
+  ),
+
+  -- Algorithms
+  s(
+    {
+      trig = "alg",
+      dscr = "Algorithm environment."
+    },
+    fmta([[
+      \begin{algorithm}
+        \caption{<>}
+        \label{alg:<>}
+
+        \SetKwInOut{Input}{input}
+        \SetKwInOut{Output}{output}
+        \SetKw{KwReturn}{return}
+
+        \Input{<>}
+        \Output{<>}
+        \BlankLine
+        <>
+      \end{algorithm}
+    ]],
+    { i(1), i(2), i(3), i(4), i(0) }),
     { condition = line_begin }
   ),
 }

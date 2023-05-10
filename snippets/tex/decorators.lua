@@ -21,6 +21,10 @@ return {
     { trig = "tt", dscr = "Monospace text" },
     fmta("\\texttt{<>}<>", { i(1), i(0) })
   ),
+  s(
+    { trig = "uv", dscr = "Czech quotes" },
+    fmta("\\uv{<>}<>", { i(1), i(0) })
+  ),
 
   -- Math Font Decorators
   s(
