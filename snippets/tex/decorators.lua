@@ -25,6 +25,11 @@ return {
     { trig = "uv", dscr = "Czech quotes" },
     fmta("\\uv{<>}<>", { i(1), i(0) })
   ),
+  s(
+    { trig = "__", dscr = "Text underline" },
+    fmta("\\underline{<>}<>", { i(1), i(0) })
+  ),
+
 
   -- Math Font Decorators
   s(

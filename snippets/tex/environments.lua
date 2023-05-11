@@ -342,8 +342,14 @@ return {
     )
   ),
   s(
-   { trig = "==", snippetType = "autosnippet", dscr = "Split align to = snippet." },
-   fmta("&= <> \\\\<>", { i(1), i(0) }),
+   { trig = "==",
+     snippetType = "autosnippet",
+     dscr = "Split align to = snippet." },
+   fmta("&= <> \\\\<>",
+   { 
+     i(1),
+     i(0) 
+   }),
    { condition = tex_utils.in_split }
   ),
 
