@@ -4,7 +4,7 @@ tex_utils.in_env = function(name)  -- generic environment detection
     local is_inside = vim.fn['vimtex#env#is_inside'](name)
     return (is_inside[1] > 0 and is_inside[2] > 0)
 end
-tex_utils.in_alg = function() -- Equation split environment detection
+tex_utils.in_alg = function() -- Algorithm environment detection
     return tex_utils.in_env('algorithm')
 end
 
