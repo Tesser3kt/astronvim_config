@@ -30,6 +30,22 @@ return {
     fmta("\\underline{<>}<>", { i(1), i(0) })
   ),
 
+  -- Text colors
+  s(
+    {
+      trig = "cl([rbg])",
+      regTrig = "true",
+      wordTrig = "false",
+      dscr = "Text color"
+    },
+    fmta("\\cl<>{<>}<>",
+      {
+        f(function(_,snip) return snip.captures[1] end),
+        i(1),
+        i(0)
+      }
+    )
+  ),
 
   -- Math Font Decorators
   s(

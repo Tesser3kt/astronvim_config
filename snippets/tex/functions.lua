@@ -380,7 +380,7 @@ return {
       dscr = "The minimum."
     },
     fmta(
-      "<>\\max",
+      "<>\\min",
       f(function(_, snip) return snip.captures[1] end)
     ),
     { condition = tex_utils.in_mathzone }
