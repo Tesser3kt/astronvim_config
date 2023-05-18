@@ -261,9 +261,9 @@ return {
       [[
         \begin{table}[<>]
          \centering
-         \begin{tabularx}{<>}
+         \begin{tabular}{<>}
           <>
-         \end{tabularx}
+         \end{tabular}
          \caption{<>}
          \label{table:<>}
         \end{table}
@@ -273,7 +273,7 @@ return {
         i(2),
         i(0),
         i(3),
-        i(4),
+        i(4)
       }
     ),
     { condition = line_begin }

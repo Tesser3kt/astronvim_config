@@ -33,7 +33,7 @@ return {
   -- Text colors
   s(
     {
-      trig = "cl([rbgp])",
+      trig = "cl(%l+)",
       regTrig = "true",
       wordTrig = "false",
       dscr = "Text color"
