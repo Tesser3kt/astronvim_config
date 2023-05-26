@@ -120,10 +120,23 @@ return {
       trig = "(%s*)EE", 
       regTrig = true,
       wordTrig = false,
+      priority = 100,
       snippetType = "autosnippet",
       dscr = "Exists"
     },
     t(" \\exists "),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    { 
+      trig = "(%s*)nEE", 
+      regTrig = true,
+      wordTrig = false,
+      priority = 200,
+      snippetType = "autosnippet",
+      dscr = "Not exists"
+    },
+    t(" \\nexists "),
     { condition = tex_utils.in_mathzone }
   ),
 
