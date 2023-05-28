@@ -120,4 +120,8 @@ return {
     "andweeb/presence.nvim",
     name = "presence"
   },
+  {
+    "wakatime/vim-wakatime",
+    event = "User AstroFile"
+  }
 }
