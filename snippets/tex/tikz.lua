@@ -73,9 +73,9 @@ return {
         <>
       ]],
       {
-        f(function(args) return string.len(args[1][1]) > 0 and "(" or "" end, {1}),
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
         i(1),
-        f(function(args) return string.len(args[1][1]) > 0 and ")" or "" end, {1}),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
         i(2),
         i(3),
         i(0)
@@ -95,9 +95,9 @@ return {
         <>
       ]],
       {
-        f(function(args) return string.len(args[1][1]) > 0 and "(" or "" end, {1}),
+        f(function(args) return string.len(args[1][1]) > 0 and "[" or "" end, {1}),
         i(1),
-        f(function(args) return string.len(args[1][1]) > 0 and ")" or "" end, {1}),
+        f(function(args) return string.len(args[1][1]) > 0 and "]" or "" end, {1}),
         i(2),
         i(3, "midway"),
         i(4),

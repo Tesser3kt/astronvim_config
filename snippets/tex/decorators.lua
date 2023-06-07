@@ -14,6 +14,10 @@ return {
     fmta("\\textbf{<>}<>", { i(1), i(0) })
   ),
   s(
+    { trig = "sf", dscr = "Sans serif text" },
+    fmta("\\textsf{<>}<>", { i(1), i(0) })
+  ),
+  s(
     { trig = "al", dscr = "Alert text" },
     fmta("\\alert{<>}<>", { i(1), i(0) })
   ),
