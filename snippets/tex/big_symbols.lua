@@ -362,7 +362,7 @@ return {
       snippetType = "autosnippet",
       dscr = "Product from 1 to n"
     },
-    fmta("\\sum_{<>}^{<>} <>", {
+    fmta("\\prod_{<>}^{<>} <>", {
       i(1, "i = 1"),
       i(2, "n"),
       i(0)

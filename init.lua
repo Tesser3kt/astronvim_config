@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "catppuccin-mocha",
+  colorscheme = "dracula",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -119,6 +119,37 @@ return {
         ]])
       end
     })
+
+    -- Python local settings
+    vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+      pattern = "*.py",
+      callback = function()
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.tabstop = 4
+        vim.opt_local.softtabstop = 4
+        vim.opt_local.spell = false
+        vim.opt_local.textwidth = 79
+        vim.opt_local.colorcolumn = "80"
+        vim.opt_local.expandtab = true
+        vim.opt_local.autoindent = true
+        vim.opt_local.fileformat = "unix"
+      end
+    })
+
+    -- HTML, JS, CSS local settings
+    vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+      pattern = { "*.html", "*.jinja", "*.jinja2", "*.css", "*.scss", "*.sass", "*.js", "*.ts", "*.jsx", "*.tsx" },
+      callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.spell = false
+      end
+    })
+
+    -- Custom commands for loading Web and Python plugins
+    -- vim.api.nvim_create_user_command('WebDev', 'echo "Web Development plugins loaded."', { nargs = 0})
+    -- vim.api.nvim_create_user_command('PythonDev', 'echo "Python Development plugins loaded."', { nargs = 0})
 
     -- The setup config table shows all available config options with their default values:
     require("presence").setup({

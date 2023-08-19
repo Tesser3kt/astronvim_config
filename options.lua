@@ -6,7 +6,7 @@ return {
     number = true, -- sets vim.opt.number
     spell = false, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-    wrap = false, -- sets vim.opt.wrap
+    wrap = false -- sets vim.opt.wrap
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
@@ -17,7 +17,7 @@ return {
     icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     ui_notifications_enabled = true, -- disable notifications when toggling UI elements
     python3_host_prog = "/usr/bin/python3.11", -- change python provider to Python 3.11
-    vimtex_view_method = 'zathura' -- open LaTeX generated PDF with Zathura
+    vimtex_view_method = "zathura", -- set vimtex to use zathura as pdf viewer
   },
 }
 -- If you need more control, you can use the function()...end notation

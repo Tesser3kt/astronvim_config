@@ -26,6 +26,7 @@ return {
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+    ["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal" }
   },
   i = {
     -- Insert mode mappings
