@@ -116,9 +116,13 @@ return {
   --   "catppuccin/nvim",
   --   name = "catppuccin"
   -- },
+  -- {
+  --   "dracula/vim",
+  --   name = "dracula"
+  -- },
   {
-    "dracula/vim",
-    name = "dracula"
+    "AlphaTechnolog/pywal.nvim",
+    name = "pywal"
   },
   {
     "andweeb/presence.nvim",
