@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "dracula",
+  colorscheme = "catppuccin",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -175,5 +175,12 @@ return {
         workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
         line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
     })
+    
+    -- Restore cursor to beam upon exit
+    vim.api.nvim_create_autocmd("ExitPre", {
+	    group = vim.api.nvim_create_augroup("Exit", { clear = true }),
+	    command = "set guicursor=a:ver90",
+	    desc = "Set cursor back to beam when leaving Neovim."
+    }) 
   end,
 }

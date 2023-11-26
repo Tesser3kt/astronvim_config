@@ -112,14 +112,14 @@ return {
       }
     end,
   },
-  -- { 
-  --   "catppuccin/nvim",
-  --   name = "catppuccin"
-  -- },
-  {
-    "dracula/vim",
-    name = "dracula"
+  { 
+    "catppuccin/nvim",
+    name = "catppuccin"
   },
+  -- {
+  --   "dracula/vim",
+  --   name = "dracula"
+  -- },
   {
     "andweeb/presence.nvim",
     name = "presence"
