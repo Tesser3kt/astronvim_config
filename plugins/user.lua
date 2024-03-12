@@ -112,14 +112,38 @@ return {
       }
     end,
   },
-  { 
-    "catppuccin/nvim",
-    name = "catppuccin"
+  {
+    "gbprod/nord.nvim",
+    name = "nord",
   },
-  -- {
-  --   "dracula/vim",
-  --   name = "dracula"
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  },
+  {
+  'andymass/vim-matchup', 
+     event = { "BufReadPost" }, 
+     init = function() 
+         vim.o.matchpairs = "(:),{:},[:]" 
+     end, 
+     config = function()
+         -- ...
+     end
+  },
+  -- { 
+  --   "catppuccin/nvim",
+  --   name = "catppuccin"
   -- },
+  {
+    "dracula/vim",
+    name = "dracula"
+  },
   {
     "andweeb/presence.nvim",
     name = "presence"

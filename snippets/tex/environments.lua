@@ -435,6 +435,22 @@ return {
     )
   ),
   s(
+    {trig = "prob", dscr = "Problem environment" },
+    fmta(
+      [[
+        \begin{problem}{<>}{<><>}
+         <>
+        \end{problem}
+      ]],
+      {
+        i(1),
+        f(function(args) return labelize(args[1][1]) end, {1}),
+        i(2),
+        i(0)
+      }
+    )
+  ),
+  s(
     {trig = "def", dscr = "Definition environment" },
     fmta(
       [[

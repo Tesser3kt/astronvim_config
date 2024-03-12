@@ -638,6 +638,20 @@ return {
   ),
   s(
     {
+      trig = "clim",
+      priority = 200,
+      snippetType = "autosnippet",
+      dscr = "Clean limit"
+    },
+    fmta("\\lim <>",
+      {
+        i(0)
+      }
+    ),
+    { condition = tex_utils.in_mathzone }
+  ),
+  s(
+    {
       trig = "flim",
       priority = 200,
       snippetType = "autosnippet",
